@@ -34,7 +34,7 @@ if [ ! -d df_linux ]; then
         wget http://www.bay12games.com/dwarves/df_40_15_linux.tar.bz2
     fi
     tar -xjf df_*_linux.tar.bz2
-    sed -i .bak -e 's/[SOUND:YES]/[SOUND:NO]/' -e 's/[PRINT_MODE:2D]/[PRINT_MODE:TEXT]/' df_linux/data/init/init.txt
+    sed -i .bak -e 's/\[SOUND:YES\]/\[SOUND:NO\]/' -e 's/\[PRINT_MODE:2D\]/\[PRINT_MODE:TEXT\]/' df_linux/data/init/init.txt
 fi
 
 python gateone/run_gateone.py --port=8080
