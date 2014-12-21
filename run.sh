@@ -7,7 +7,7 @@
 if [ ! -f anonymous_user/.ssh/auto_df ]; then
     mkdir -p anonymous_user/.ssh
     ssh-keygen -f anonymous_user/.ssh/auto_df
-    printf "command=\"tmux attach || tmux -f `pwd`/tmux.conf new-session `pwd`/df_linux/df\",no-port-forwarding,no-X11-forwarding,no-agent-forwarding " > authorized_keys.txt
+    printf "command=\"tmux attach -t DwarfFortress || tmux -f `pwd`/tmux.conf new-session -s DwarfFortress `pwd`/df_linux/df\",no-port-forwarding,no-X11-forwarding,no-agent-forwarding " > authorized_keys.txt
     cat anonymous_user/.ssh/auto_df.pub >> authorized_keys.txt
     cat authorized_keys >> ~/.ssh/authorized_keys
 fi
