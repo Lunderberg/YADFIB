@@ -3,6 +3,8 @@
 ### REQUIREMENTS
 #sudo apt-get install python-virtualenv
 
+DF_VERSION=40_21
+
 # Make the ssh keys for the anonymous user
 if [ ! -f anonymous_user/.ssh/auto_df ]; then
     mkdir -p anonymous_user/.ssh
@@ -30,10 +32,10 @@ fi
 
 # Grab dwarf fortress
 if [ ! -d df_linux ]; then
-    if [ ! -f df_40_15_linux.tar.bz2 ]; then
-        wget http://www.bay12games.com/dwarves/df_40_15_linux.tar.bz2
+    if [ ! -f df_${DF_VERSION}_linux.tar.bz2 ]; then
+        wget http://www.bay12games.com/dwarves/df_${DF_VERSION}_linux.tar.bz2
     fi
-    tar -xjf df_*_linux.tar.bz2
+    tar -xjf df_${DF_VERSION}_linux.tar.bz2
     sed -i .bak -e 's/\[SOUND:YES\]/\[SOUND:NO\]/' -e 's/\[PRINT_MODE:2D\]/\[PRINT_MODE:TEXT\]/' df_linux/data/init/init.txt
 fi
 
