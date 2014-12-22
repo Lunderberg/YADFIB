@@ -11,7 +11,8 @@ if [ ! -f anonymous_user/.ssh/auto_df ]; then
     ssh-keygen -f anonymous_user/.ssh/auto_df
     printf "command=\"tmux attach -t DwarfFortress || tmux -f `pwd`/tmux.conf new-session -s DwarfFortress `pwd`/df_linux/df\",no-port-forwarding,no-X11-forwarding,no-agent-forwarding " > authorized_keys.txt
     cat anonymous_user/.ssh/auto_df.pub >> authorized_keys.txt
-    cat authorized_keys >> ~/.ssh/authorized_keys
+    cat authorized_keys.txt >> ~/.ssh/authorized_keys
+    echo "auto_df" >> anonymous_user/.ssh/.default_ids
 fi
 
 # Grab GateOne, if it is not currently here.
